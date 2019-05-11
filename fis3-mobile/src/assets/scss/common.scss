@@ -1,0 +1,1354 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+// 必选
+// @import "gird";
+// @import "forms";
+// @import "button";
+// @import "table";
+
+// 可选
+// @import "alert";
+@import "iconfont";
+// @import "list";
+// @import "modal";
+// @import "panel";
+// @import "share";
+
+//f7
+@import "framework7/dist/css/framework7.ios.css";
+@import "framework7/dist/css/framework7.ios.colors.css";
+
+/*$designdraft为设计稿宽度，可以随时按照设计师发来的设计稿改动*/
+@mixin user($designdraft) {
+  /*以下为各个主流移动设备宽度必须从大到小排列；
+  ipad pro:1024px;
+  ipad:768px;
+  iphone6+:414px;
+  iphone6:375px;
+  iphone5:320px
+  */
+  $list: 1024px, 800px, 768px, 720px, 414px, 412px, 384px, 375px, 360px, 320px;
+
+  @each $i in $list {
+
+    /*12栅格系统*/
+    @media screen and (max-width:#{$i}) {
+      html {
+        /*使用rem，根据比例换算出需要的像素，6px等于.06rem*/
+        font-size: 100px*($i/$designdraft);
+      }
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//这里输入设计稿宽度
+@include user(750px);
+
+.page {
+  width: 100%;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: .15rem;
+  padding-bottom: .2rem;
+  background-color: $white;
+
+  &::after {
+    height: .01rem;
+    background-color: #ececec;
+  }
+
+  a {
+    display: block;
+  }
+
+}
+
+
+.clearfix {
+  @include clearfix();
+}
+
+.center-block {
+  @include center-block();
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.mt {
+  margin-top: $module-margin !important;
+}
+
+.mb {
+  margin-bottom: $module-margin !important;
+}
+
+.ml {
+  margin-left: $module-margin !important;
+}
+
+.mr {
+  margin-right: $module-margin !important;
+}
+
+li {
+  list-style: none;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-color;
+
+  &.gray-bg {
+    background-color: #f9f9f9;
+  }
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  color: $gray-base;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: lighten($brand, 5%);
+    outline: none;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-h1;
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2;
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3;
+}
+
+h4,
+.h4 {
+  font-size: $font-size-h4;
+}
+
+h5,
+.h5 {
+  font-size: $font-size-h5;
+}
+
+h6,
+.h6 {
+  font-size: $font-size-h6;
+}
+
+pre code {
+  font-family: Consolas, Monaco, monospace;
+}
+
+.page-content {
+  background-color: $body-bg;
+}
+
+.page-wrapper {
+  transition: transform .5s ease;
+}
+
+.container {
+  position: relative;
+
+  @include desktop {
+    margin: 0 auto;
+    max-width: $desktop - 40px;
+    width: $desktop - 40px;
+
+    // Modifiers
+    &.is-fluid {
+      margin: 0 20px;
+      max-width: none;
+      width: auto;
+    }
+  }
+
+  @include widescreen {
+    max-width: $widescreen - 40px;
+    width: $widescreen - 40px;
+  }
+
+  @include fullhd {
+    max-width: $fullhd - 40px;
+    width: $fullhd - 40px;
+  }
+
+  @include mobile {
+    padding: 0 $module-padding;
+  }
+}
+
+.wrapper {
+  position: relative;
+  @include center-block();
+  width: 1200px;
+}
+
+.li-spacing {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+  height: 12px;
+  width: 1px;
+  background-color: lighten($gray-light, 25%);
+}
+
+.li-bull {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 10px;
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: $disabled;
+}
+
+// noData
+.nodata {
+  margin: $module-margin auto;
+  width: 140px;
+  text-align: center;
+
+  img {
+    width: 140px;
+    height: auto;
+  }
+
+  p {
+    margin: 0;
+    padding-top: 5px;
+    font-size: $font-size-lg;
+    color: $gray-light;
+  }
+}
+
+/* 报道信息 */
+.bgBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('assets/images/background-img.png') no-repeat;
+  background-position: left bottom;
+  background-size: 100% auto;
+
+  .blank-warp {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 3.25rem;
+    height: 2.08rem;
+    background: url('assets/images/have-no.png') no-repeat;
+    background-size: cover;
+  }
+}
+
+.pageall {
+  width: 100%;
+  height: auto;
+  background-color: $body-bg;
+}
+
+.pagecontent {
+  width: 100%;
+  height: auto;
+}
+
+.page-main {
+  height: auto;
+  width: 100%;
+  overflow: scroll;
+  background-color: $body-bg;
+}
+
+.page-tab {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: $white;
+
+  a {
+    display: block;
+  }
+}
+
+// 轮播图
+.banner-content {
+  width: 100%;
+
+  .swiper-container {
+    width: 100%;
+    height: 4.2rem;
+  }
+
+  .swiper-slide {
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.banner-content .swiper-pagination-bullet {
+  width: .12rem;
+  height: .12rem;
+  border-radius: 50%;
+  opacity: 1;
+  background-color: $white;
+}
+
+.banner-content .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 .05rem;
+}
+
+.banner-content .swiper-pagination .swiper-pagination-bullet-active {
+  width: .24rem;
+  background-color: $brand;
+  border-radius: .12rem;
+}
+
+
+// 页面样式
+// homepage cloud-main-box
+.cloud-main-box {
+  padding-top: .2rem;
+
+  .cloud-main-head {
+    padding-left: .3rem;
+    padding-right: .3rem;
+    line-height: .38rem;
+    background-color: $white;
+  }
+
+  .court-tit {
+    font-size: .4rem;
+    color: $gray-dark;
+    font-weight: bold;
+  }
+
+  .cloud-main-head-learnmore {
+    font-size: .3rem;
+    color: #9a9a9a;
+
+    .icon-arrow-right {
+      font-size: .3rem;
+    }
+  }
+
+  .cloud-main-head-learnmore:active {
+    color: $brand;
+  }
+
+  .cloud-main-content {
+    padding-left: .3rem;
+    padding-right: .3rem;
+    background-color: $white;
+  }
+}
+
+// homepage
+// 覆盖common样式
+.toolbar-fixed {
+  .page-content {
+    padding-top: 0;
+    padding-bottom: 2.7rem;
+  }
+}
+
+.device-iphone-x .toolbar-fixed .page-content {
+  padding-bottom: 2.7rem;
+}
+
+// 搜索
+.homepage-topbar {
+  padding: .2rem .24rem .2rem;
+  background-color: #f5f7f6;
+
+  .topbar-search {
+    position: relative;
+    padding-left: .4rem;
+    padding-right: .9rem;
+    background-color: $white;
+    border-radius: .4rem;
+    box-shadow: 0 0 .05rem rgba(166, 171, 187, .16);
+  }
+
+  .topbar-lesson {
+    padding-left: .53rem;
+    width: 100%;
+    line-height: 0.8rem;
+    font-size: .3rem;
+    border: none;
+  }
+
+  .topbar-lesson:placeholder {
+    color: $gray-font;
+  }
+
+  .icon-search {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: .38rem;
+    color: $brand;
+  }
+}
+
+// 轮播图部分
+.banner-content {
+  position: relative;
+
+  .banner-label-wrap {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    padding-top: .2rem;
+  }
+
+  .banner-label1 {
+    width: 1.76rem;
+    border-top: .6rem solid $brand;
+    border-right: .35rem solid transparent;
+  }
+
+  .banner-label2 {
+    position: absolute;
+    top: .3rem;
+    width: 1.82rem;
+    border-top: .6rem solid rgba(50, 177, 108, .5);
+    border-right: .35rem solid transparent;
+  }
+
+  .banner-label {
+    position: absolute;
+    top: .2rem;
+    z-index: 3;
+    padding-left: .18rem;
+    line-height: .6rem;
+    color: $white;
+    font-size: .3rem;
+  }
+}
+
+// 导航按钮
+.cloud-nav {
+  padding: .42rem .3rem .3rem;
+  background-color: $white;
+  box-shadow: 0 .05rem .05rem -.05rem rgba(166, 171, 187, .16);
+
+  .cloud-nav-li {
+    width: 25%;
+  }
+
+  .cloud-nav-detail {
+    display: block;
+  }
+
+  .cloud-nav-detail:active .cloud-nav-name {
+    color: $brand;
+    user-select: none;
+  }
+
+  .cloud-nav-img {
+    margin: auto;
+    width: .68rem;
+    height: .68rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .cloud-nav-name {
+    padding-top: .20rem;
+    font-size: .26rem;
+    color: $gray-dark;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+// 庭审旁听
+.cloud-court.cloud-main-box .cloud-main-head {
+  padding-top: .36rem;
+}
+
+.cloud-court {
+  box-shadow: 0 .05rem .05rem -.05rem rgba(166, 171, 187, .16);
+
+  .court-tit {
+    padding-top: .02rem;
+  }
+
+  .cloud-main-head-learnmore {
+    padding-top: .04rem;
+    user-select: none;
+  }
+
+  .cloud-court-time-wrap {
+    padding-left: .36rem;
+  }
+
+  .cloud-court-time {
+    width: .4rem;
+    line-height: .4rem;
+    font-size: .26rem;
+    color: $white;
+    background-color: $gray-dark;
+    text-align: center;
+    border-radius: .04rem;
+  }
+
+  .cloud-court-colon {
+    padding-left: .03rem;
+    padding-right: .03rem;
+    font-size: .3rem;
+  }
+
+  .cloud-court-content {
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+  }
+
+  .cloud-court-card-wrap {
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    border-radius: .1rem;
+  }
+
+  .cloud-court-card-wrap:active {
+    background-color: #ddd;
+  }
+
+  .cloud-court-card {
+    display: block;
+  }
+
+  .court-card-img {
+    position: relative;
+    width: 3.2rem;
+    height: 2.4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: .08rem;
+  }
+
+  .court-card-img-label {
+    position: absolute;
+    right: .1rem;
+    bottom: .1rem;
+    width: auto;
+    padding-left: .35rem;
+    padding-right: .15rem;
+    line-height: .4rem;
+    font-size: .22rem;
+    color: $white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: .2rem;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: .2rem;
+      width: .1rem;
+      height: .1rem;
+      transform: translateY(-50%);
+      content: '';
+      background-color: $brand;
+      border-radius: 50%;
+    }
+  }
+
+  .court-card-instro {
+    width: calc(100% - 3.45rem);
+  }
+
+  .court-card-instro-tit {
+    display: -webkit-box;
+    line-height: .4rem;
+    font-size: .32rem;
+    color: $gray-dark;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: 3;
+  }
+
+  .court-card-instro-place {
+    padding-top: .25rem;
+    font-size: .26rem;
+    color: $gray-font;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .court-card-instro-otime {
+    padding-top: .2rem;
+    font-size: .26rem;
+    color: $gray-font;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+// 在线课程
+.cloud-course {
+  box-shadow: 0 .05rem .05rem -.05rem rgba(166, 171, 187, .16);
+
+  .cloud-main-head {
+    padding-top: .4rem;
+  }
+
+  .cloud-main-content {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+  }
+
+  .cloud-course-card-wrap {
+    position: relative;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    border-radius: .1rem;
+  }
+
+  .cloud-course-card-wrap:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    margin: auto;
+    background: $gray-lighter;
+    transform: scaleY(.5);
+    content: "";
+  }
+
+  .cloud-course-card-wrap:last-child::after {
+    width: 0;
+  }
+
+  .cloud-course-card-wrap:active {
+    background-color: #ddd;
+  }
+
+  .cloud-course-card {
+    display: block;
+  }
+
+  .course-card-img {
+    width: 2.4rem;
+    height: 1.8rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: .08rem;
+  }
+
+  .course-card-instro {
+    width: calc(100% - 2.65rem);
+  }
+
+  .course-card-tit {
+    display: -webkit-box;
+    height: .85rem;
+    line-height: 1.4;
+    font-size: .32rem;
+    color: $gray-dark;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: 2;
+  }
+
+  .course-card-details {
+    padding-top: .18rem;
+    padding-bottom: .1rem;
+    line-height: 1.1;
+    font-size: .26rem;
+    color: $gray-font;
+
+    .score-num {
+      color: $brand;
+    }
+  }
+
+  .course-card-detail {
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .course-card-labels {
+
+    .card-label {
+      margin-left: .2rem;
+      width: 1.28rem;
+      line-height: .4rem;
+      font-size: .26rem;
+      color: $brand;
+      background-color: #eaf7f0;
+      text-align: center;
+    }
+
+    .card-label:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+// 精英名师
+.cloud-teacher {
+  box-shadow: 0 .05rem .05rem -.05rem rgba(166, 171, 187, .16);
+
+  .cloud-main-content {
+    padding-top: .16rem;
+    padding-bottom: .1rem;
+  }
+
+  .cloud-main-head {
+    padding-top: .36rem;
+  }
+
+  .cloud-teacher-card-wrap {
+    display: block;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    width: 50%;
+    border-radius: .1rem;
+  }
+
+  .cloud-teacher-card {
+    display: block;
+  }
+
+  .cloud-teacher-card-wrap:active {
+    background-color: #ddd;
+  }
+
+  .teacher-card-img {
+    margin: auto;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+  }
+
+  .teacher-card-name-wrap {
+    padding-top: .3rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .teacher-card-name {
+    display: inline-block;
+    padding-right: .2rem;
+    max-width: 50%;
+    line-height: .36rem;
+    font-size: .36rem;
+    color: $gray-dark;
+    font-weight: bold;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .card-name-label {
+    display: inline-block;
+    padding-left: .13rem;
+    padding-right: .13rem;
+    line-height: .36rem;
+    font-size: .24rem;
+    color: $white;
+    vertical-align: middle;
+    border-radius: .04rem;
+  }
+
+  .card-name-judge {
+    background-color: #e94040;
+  }
+
+  .card-name-lawyer {
+    background-color: $orange;
+  }
+
+  .card-name-conciliator {
+    background-color: $brand;
+  }
+
+  .teacher-card-info {
+    display: -webkit-box;
+    box-sizing: content-box;
+    padding: .2rem .42rem .25rem;
+    height: .7rem;
+    font-size: .26rem;
+    text-align: center;
+    color: #9a9a9a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: 2;
+  }
+
+  .teacher-card-follow {
+    margin: auto;
+    width: 2.08rem;
+    line-height: .64rem;
+    font-size: .3rem;
+    color: $white;
+    background-color: $brand;
+    text-align: center;
+    border-radius: .325rem;
+  }
+
+  .teacher-icon-add {
+    font-size: .26rem;
+  }
+}
+
+// course
+.toolbar-fixed {
+  .page-content.course-htm {
+    padding-bottom: 1.98rem;
+    background-color: $white;
+  }
+}
+
+// topbar
+
+.course-topbar::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  background: #e7e7e7;
+  transform: scaleY(.5);
+  content: "";
+}
+
+.course-topbar {
+  position: relative;
+  line-height: .98rem;
+  background-color: $white;
+
+  .topbar-btn {
+    position: relative;
+    width: 33.33333%;
+    font-size: .32rem;
+    color: $gray-font;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .topbar-btn.active {
+    color: $gray-dark;
+  }
+
+  .topbar-btn.active::after {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 3;
+    width: .62rem;
+    height: .05rem;
+    transform: translateX(-50%);
+    content: '';
+    background-color: $brand;
+    border-radius: .025rem;
+  }
+}
+
+// 内容
+.course-htm {
+  .course-htm-panel {
+    display: none;
+  }
+  
+  .course-htm-panel.active {
+    display: block;
+  }
+  
+  .course-list {
+    padding-top: .96rem;
+    height: 100%;
+    background-color: $white;
+  
+    .course-list-empty-wrap {
+      margin: auto;
+      padding-top: .975rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: #fafafb;
+    }
+  
+    .course-list-empty {
+      margin: auto;
+      width: 1.5rem;
+      height: 1.05rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  
+    .course-list-tit {
+      padding-top: .55rem;
+      font-size: .36rem;
+      color: $gray-dark;
+      font-weight: bold;
+      text-align: center;
+    }
+  
+    .course-list-info {
+      padding-top: .2rem;
+      font-size: .3rem;
+      color: #9a9a9a;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  
+  .course-classroom::after {
+    position: absolute;
+    bottom: .3rem;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    margin: auto;
+    background: $white;
+    content: "";
+  }
+  
+  .course-classroom {
+    position: relative;
+    padding-top: .1rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
+    padding-bottom: .3rem;
+    background-color: $white;
+  
+    .course-classroom-card-wrap {
+      position: relative;
+      width: 50%;
+  
+      &:nth-child(2n) {
+        padding-left: .15rem;
+      }
+  
+      &:nth-child(2n + 1) {
+        padding-right: .15rem;
+      }
+    }
+  
+    .course-classroom-card:active {
+      background-color: #ddd;
+    }
+  
+    .course-classroom-card {
+      display: block;
+      padding-top: .3rem;
+      padding-bottom: .3rem;
+      border-radius: .1rem;
+    }
+  
+    .course-classroom-card-wrap::after {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      margin: auto;
+      background: $gray-lighter;
+      transform: scaleY(.5);
+      content: "";
+    }
+  
+    .classroom-card-img {
+      position: relative;
+      margin: 0;
+      height: 2.48rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border-radius: .08rem;
+    }
+  
+  
+    .classroom-img-live {
+      position: absolute;
+      right: .1rem;
+      bottom: .15rem;
+      padding-left: .35rem;
+      padding-right: .15rem;
+      line-height: .4rem;
+      font-size: .22rem;
+      color: $white;
+      text-align: center;
+      background-color: rgba(0, 0, 0, .5);
+      border-radius: .2rem;
+  
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: .2rem;
+        width: .1rem;
+        height: .1rem;
+        transform: translateY(-50%);
+        content: '';
+        background-color: $brand;
+        border-radius: 50%;
+      }
+    }
+  
+    .classroom-img-review {
+      position: absolute;
+      right: .1rem;
+      bottom: .15rem;
+      padding-left: .18rem;
+      padding-right: .18rem;
+      line-height: .4rem;
+      color: $white;
+      font-size: .22rem;
+      text-align: center;
+      background-color: $brand;
+      border-radius: .2rem;
+    }
+  
+    .classroom-card-tit {
+      padding-top: .2rem;
+      font-size: .32rem;
+      line-height: 1;
+      color: $gray-dark;
+      font-weight: bold;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  
+    .classroom-card-time {
+      padding-top: .2rem;
+      line-height: 1;
+      font-size: .26rem;
+      color: $gray-font;
+    }
+  
+    .classroom-card-state {
+      padding-bottom: .1rem;
+      line-height: 1;
+      font-size: .26rem;
+      color: $gray-font;
+      text-align: right;
+    }
+  
+    .classroom-card-state.state-incomplete {
+      color: $orange;
+    }
+  
+    .classroom-card-state.state-complete {
+      color: $brand;
+    }
+  
+    .classroom-card-bar {
+      height: .14rem;
+      background-color: #ebebeb;
+      border-radius: .07rem;
+    }
+  
+    .progressbar span {
+      border-radius: .07rem;
+    }
+  
+    .state-incomplete.progressbar span {
+      background-color: $orange;
+    }
+  
+    .state-complete.progressbar span {
+      background-color: $brand;
+    }
+  }
+  
+  .course-law {
+    padding: .1rem .3rem .3rem;
+  
+    .course-law-card-wrap {
+      position: relative;
+      padding-top: .3rem;
+      padding-bottom: .3rem;
+      border-radius: .1rem;
+    }
+  
+    .course-law-card {
+      display: block;
+    }
+  
+    .course-law-card-wrap:active {
+      background-color: #ddd;
+    }
+  
+    .course-law-card-wrap:after {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      margin: auto;
+      background: $gray-lighter;
+      transform: scaleY(.5);
+      content: "";
+    }
+  
+    .course-law-card-wrap:last-child::after {
+      height: 0;
+    }
+  
+    .law-card-img {
+      width: 2.4rem;
+      height: 1.8rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border-radius: .08rem;
+    }
+  
+    .law-card-instro {
+      width: calc(100% - 2.65rem);
+    }
+  
+    .law-card-tit {
+      display: -webkit-box;
+      height: .84rem;
+      line-height: .42rem;
+      font-size: .32rem;
+      color: $gray-dark;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* autoprefixer: off */
+      -webkit-box-orient: vertical;
+      /* autoprefixer: on */
+      -webkit-line-clamp: 2;
+    }
+  
+    .law-card-teacher {
+      padding-top: .15rem;
+      line-height: 1;
+      font-size: .26rem;
+      color: $gray-font;
+    }
+  
+    .law-card-state {
+      padding-bottom: .1rem;
+      line-height: 1;
+      font-size: .26rem;
+      color: $gray-font;
+      text-align: right;
+    }
+  
+    .law-card-state.state-incomplete {
+      color: $orange;
+    }
+  
+    .law-card-state.state-complete {
+      color: $brand;
+    }
+  
+    .law-card-bar {
+      height: .14rem;
+      background-color: #ebebeb;
+      border-radius: .07rem;
+    }
+  
+  
+    .state-incomplete.progressbar span {
+      background-color: $orange;
+      border-radius: .07rem;
+    }
+  
+    .state-complete.progressbar span {
+      background-color: $brand;
+    }
+  }
+}
+
+
+// footer
+.toolbar {
+  width: 100%;
+  height: auto;
+  background-color: $white;
+
+  &:before {
+    background-color: #e8e8e8;
+  }
+}
+.footer-toolbar {
+  .boolbar-box {
+    box-shadow: 0 -.05rem .05rem -.05rem rgba(0, 0, 0, .04);
+  }
+  
+  .device-iphone-x .view>.toolbar {
+    height: auto;
+  }
+  
+  .toolbar-detail {
+    padding-bottom: .12rem;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+  
+    a {
+      display: block;
+    }
+  
+    &.active {
+      .toolbar-name {
+        color: $brand;
+      }
+  
+      .toolbar-iconfont {
+        color: $brand;
+      }
+  
+      .toolbar-iconfont {
+        display: none;
+      }
+  
+      .toolbar-iconfont-active {
+        display: block;
+      }
+    }
+  
+    .toolbar-iconfont {
+      color: #a2a5a3;
+      font-size: .42rem;
+    }
+  
+    .toolbar-iconfont-active {
+      display: none;
+      color: $brand;
+      font-size: .42rem;
+    }
+  
+    .toolbar-name {
+      width: 100%;
+      font-size: .22rem;
+      line-height: 100%;
+      color: #a2a5a3;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  
+  .toolbar-icon-before {
+    width: .7rem;
+    height: .4rem;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+  
+  .toolbar-icon-after {
+    display: none;
+    width: .7rem;
+    height: .4rem;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}
+

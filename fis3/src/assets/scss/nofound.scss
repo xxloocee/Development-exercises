@@ -1,0 +1,94 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+@import "normalize.css/normalize.css";
+
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-color;
+}
+img {
+  vertical-align: middle;
+}
+a {
+  color: $brand;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    outline: none;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+::selection {
+  background: $brand;
+  color: $white;
+}
+::-moz-selection {
+  background: $brand;
+  color: $white;
+}
+// Layout
+.wrapper{
+  @include center-block();
+  width: 1200px;
+}
+
+.error{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -220px;
+  margin-left: -600px;
+  width: 1200px;
+  height: 360px;
+  .error-cartoon{
+    height: 100%;
+    width: 570px;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+  .error-desc{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 600px;
+  }
+  .error-code{
+    font-size: $font-size-base;
+  }
+  h1{
+    padding-bottom: $module-padding;
+    margin: 0;
+    font-size: 48px;
+  }
+  p{
+    font-size: $font-size-h4;
+    color: $gray-light;
+  }
+  a{
+    padding: 0 8px;
+    &:hover{
+      color: lighten($brand, 8%);
+    }
+  }
+}

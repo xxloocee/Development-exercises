@@ -1,0 +1,93 @@
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#abb2bf;background:#282c34}
+.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}
+.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}
+.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}
+.hljs-literal{color:#56b6c2}
+.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}
+.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}
+.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#d19a66}
+.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#61aeee}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+.doc{padding:16px 0}
+.doc .h3{margin:0;margin-bottom:32px;padding-left:15px;border-left:5px solid #0e76bc;line-height:1.2;font-weight:400;color:#383838}
+.doc .h4{margin:0;padding-bottom:16px;font-weight:100;color:#aaa}
+.doc pre{margin:0}
+.timeline-wrap{padding:32px;background-color:#0e76bc}
+.timeline-wrap.white{background-color:#fff}
+.code-block,.demo-block{margin:0;padding:0 0 50px;list-style:none}
+.code-block:before,.code-block:after,.demo-block:before,.demo-block:after{content:" ";display:table}
+.code-block:after,.demo-block:after{clear:both}
+.code-block>li,.demo-block>li{float:left;padding-left:16px;width:100%}
+.code-block>li.col-50,.demo-block>li.col-50{width:50%}
+.code-block>li.col-33,.demo-block>li.col-33{width:33.3333333334%}
+.code-block>li:first-child,.demo-block>li:first-child{padding-left:0}
+.members-wrapper{margin-top:30px;margin-right:30px}
+.one-wrapper{width:286px}
+.two-wrapper{width:238px}
+.the-wrapper{width:284px}
+.video-test{float:left;margin-right:30px}
+.video-test-one{width:286px}
+.breadcrumb-wrap{padding:16px;background-color:#0e76bc}
+.ex_aside{width:300px}
+.slide-wrap{overflow:hidden;position:relative;width:560px;height:300px}
+.slide-wrap .slide-btn{z-index:100;position:absolute;display:block;top:50%;bottom:auto;left:0;right:auto;margin-top:-40px;width:40px;height:80px;line-height:80px;text-align:center;font-size:38px;font-family:"Hiragino Sans GB",SimSun;text-shadow:0 0 5px rgba(0,0,0,.1);color:#fff;background-color:transparent;transition:all .18s ease-in}
+.slide-wrap .slide-btn:active{color:#fff}
+.slide-wrap .slide-btn:hover{background-color:rgba(0,0,0,.4)}
+.slide-wrap .slide-btn:focus{color:#fff}
+.slide-wrap .slide-btn.next{left:auto;right:0}
+.slide-wrap .slide-num{z-index:101;position:absolute;bottom:10px;right:10px;margin:0;padding:0;list-style:none}
+.slide-wrap .slide-num:before,.slide-wrap .slide-num:after{content:" ";display:table}
+.slide-wrap .slide-num:after{clear:both}
+.slide-wrap .slide-num li{float:left;margin-left:4px;width:20px;height:20px;line-height:20px;text-align:center;color:#fff;background-color:rgba(0,0,0,.4);cursor:pointer}
+.slide-wrap .slide-num li:hover,.slide-wrap .slide-num li.active{background-color:#0e76bc}
+.slide-wrap .slide-pic{margin:0;padding:0;list-style:none}
+.anno-wrap{overflow:hidden;width:450px;height:272px;border:1px solid #ddd;text-align:left}
+.anno-wrap .hd{position:relative;padding:0 10px 0 20px;height:30px;line-height:30px;border-bottom:1px solid #ddd;background:#f4f4f4}
+.anno-wrap .hd ul{position:absolute;float:left;left:20px;top:-1px;margin:0;padding:0;height:30px;list-style:none}
+.anno-wrap .hd ul:before,.anno-wrap .hd ul:after{content:" ";display:table}
+.anno-wrap .hd ul:after{clear:both}
+.anno-wrap .hd li{float:left;padding:0 15px;cursor:pointer}
+.anno-wrap .hd li.active{height:31px;border:1px solid #ddd;border-bottom:2px solid #fff;background:#fff}
+.anno-wrap .bd ul{margin:0;padding:15px 0;width:448px;list-style:none}
+.anno-wrap .bd li{padding:0 15px;height:30px;line-height:30px}
+.anno-wrap .bd a{display:block;color:#676a6c}
+.anno-wrap .bd a:hover{color:#0e76bc}
+.anno-wrap .bd .date{float:right;color:#999}
+.anno-wrap .arrow{position:absolute;right:10px;top:0}
+.anno-wrap .arrow a{overflow:hidden;display:block;float:right;margin-top:10px;margin-right:5px;width:5px;height:9px;cursor:pointer;background:url(/prototype/12348-common/static/assets/images/arrow.png) 0 0 no-repeat}
+.anno-wrap .arrow .next{background-position:0 -50px}
+.anno-wrap .arrow .prevStop{background-position:-60px 0}
+.anno-wrap .arrow .nextStop{background-position:-60px -50px}
+.pagenav{margin:30px 0;padding:0;list-style:none}
+.pagenav:before,.pagenav:after{content:" ";display:table}
+.pagenav:after{clear:both}
+.pagenav li{float:left;margin-left:-1px}
+.pagenav .button{position:relative;border-radius:0;background-color:#fff}
+.pagenav .button.active{z-index:10;border-color:#0e76bc;color:#fff;background-color:#0e76bc}
+.pagenav .button:hover{z-index:9}
+.ex_modal .modal-body{text-align:center}
+.ex_modal .modal-footer{text-align:center;color:#0e76bc}
+.ex_modal .modal-footer h4{padding-bottom:16px;margin:0;font-weight:400;font-size:24px}
+.ex-panel h4,.ex-panel h5{margin:0}
+.notification{padding:16px;border-radius:6px;text-align:center;background-color:#f5f5f5}
+.notification.is-primary{color:#fff;background-color:#0e76bc}
+.notification.is-success{color:#fff;background-color:#090}
+.notification.is-warning{color:#fff;background-color:#f8ac59}
+.notification.is-danger{color:#fff;background-color:#ed5565}
+.iconfont-list{margin:0;padding:0;list-style:none}
+.iconfont-list:before,.iconfont-list:after{content:" ";display:table}
+.iconfont-list:after{clear:both}
+.iconfont-list li{float:left;margin-left:-1px;margin-top:-1px;width:150px}
+.iconfont-list a{overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;height:150px;border:1px solid #f5f5f5;text-align:center}
+.iconfont-list a:hover{z-index:5;border-color:#0e76bc;background-color:#fafafa}
+.iconfont-list a:hover .iconfont{font-size:20px}
+.iconfont-list .name{margin:0;padding:0 0 5px;font-weight:400;font-size:16px}
+.iconfont-list .icon-wrap{display:flex;align-items:center;justify-content:center;width:100%;height:50%}
+.iconfont-list .icon-info{width:100%;height:50%}
+.iconfont-list .iconfont{font-size:38px;transition:font-size .25s ease-out 0s}
+.tab .tab-head .on{color:#fff;background-color:#0e76bc}
+.affix-section{padding-right:400px}
+.affix-section h3{color:#383838}
+.affix-section div{font-size:16px;text-align:justify}

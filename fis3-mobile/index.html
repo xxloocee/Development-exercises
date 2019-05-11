@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="fullpage">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta content="telephone=no" name="format-detection" />
+  <meta content="address=no" name="format-detection" />
+  <meta name="apple-mobile-web-app-capable" content="no" />
+
+  <title>罗希希-fis3-mobile</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="HOMOLO">
+  <link rel="stylesheet" href="src/assets/scss/common.scss">
+  <!--STYLE_PLACEHOLDER-->
+</head>
+
+<body class="theme-white">
+  <div class="views">
+    <div class="view view-main">
+      <link rel="import" href="src/pages/homepage/homepage.html?__inline">
+      <link rel="import" href="src/components/footer/footer.html?__inline">
+    </div>
+  </div>
+  <script src="lib/mod.js"></script>
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  <script>
+    app = require('src/js/app');
+    app.set.init();
+    var myApp = app.framework.init();
+    var $$ = Dom7;
+    $(function () {
+      $('.toolbar-detail').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+      });
+    });
+    var mySwiper1 = myApp.swiper('.banner-swiper', {
+      loop: true,
+      pagination: '.banner-swiper .swiper-pagination',
+      speed: 1000,
+      autoplay: false,
+      autoplayDisableOnInteraction: false,
+    });
+  </script>
+  <!--SCRIPT_PLACEHOLDER-->
+</body>
+
+</html>

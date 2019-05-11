@@ -1,0 +1,40 @@
+{
+  "name": "luoxixi-vue-m",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-axios": "^2.1.4",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vux": "^2.9.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.1.1",
+    "@vue/cli-service": "^3.7.0",
+    "axios": "^0.18.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "node-sass": "^4.12.0",
+    "sass": "^1.14.3",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^14.2.2",
+    "vue-template-compiler": "^2.5.17",
+    "vux-loader": "^1.2.9",
+    "yaml-loader": "^0.5.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

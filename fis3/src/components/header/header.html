@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="header.scss">
+<div class="header">
+  <div class="wrapper clearfix">
+    <a href="index.html" class="logo pull-left" style="width:280px;background-image:url(assets/images/logo.jpg);"></a>
+    <div class="cluster pull-left clearfix">
+      <div class="header-select pull-left" name="" id="header-select">
+        课程<i class="iconfont icon-xiala pull-right"></i>
+        <div class="options">
+          <option class="option" value="讲堂">讲堂</option>
+          <option class="option" value="讲师">讲师</option>
+          <option class="option" value="庭审">庭审</option>
+          <option class="option" value="评析">评析</option>
+        </div>
+      </div>
+      <input class="search-input pull-left" type="text" placeholder="搜索你想学习的课程...">
+      <div class="search pull-right">
+        <i class="iconfont icon-sousuo"></i>
+      </div>
+    </div>
+    <div class="user-info-cell">
+      <div class="user-info">
+        <a class="user-personal" href="javascript:;">个人中心<i class="iconfont icon-red-dot"></i></a>
+        <a class="user-quit" href="javascript:;">退出</a>
+        <a class="portrait" style="background-image: url(assets/images/portrait.jpg)"></a>
+      </div>
+    </div>
+
+  </div>
+  <div class="nav-wrap">
+    <ul class="header-nav clearfix">
+      <li class="nav-item pull-left active"><a class="link" href="javascript:;">首页</a></li>
+      <li class="nav-item pull-left"><a class="link" href="javascript:;">课程广场</a></li>
+      <li class="nav-item pull-left"><a class="link" href="javascript:;">在线大讲堂</a></li>
+      <li class="nav-item pull-left"><a class="link" href="javascript:;">庭审旁听</a></li>
+      <li class="nav-item pull-left"><a class="link" href="javascript:;">案例评析</a></li>
+      <li class="nav-item pull-left"><a class="link" href="javascript:;">精英名师</a></li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var main = require('main');
+  // main.navPanel.init();
+  main.select.init();
+
+</script>

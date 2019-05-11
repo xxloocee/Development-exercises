@@ -1,0 +1,147 @@
+.header {
+  border-bottom: none;
+  box-shadow: none;
+
+  .user-info-cell {
+    padding: 0;
+    line-height: 100px;
+
+    .user-personal,
+    .user-quit {
+      position: relative;
+      padding-right: 28px;
+      color: #333;
+
+      .icon-red-dot {
+        position: absolute;
+        bottom: -36px;
+        right: 9px;
+        font-size: 36px;
+        color: #d60000;
+      }
+    }
+
+    .portrait {
+      display: inline-block;
+      width: 48px;
+      height: 45px;
+      vertical-align: middle;
+      background: no-repeat center;
+      cursor: pointer;
+    }
+
+  }
+
+  .cluster {
+    margin-left: 150px;
+    padding: 0;
+    width: 495px;
+    height: 36px;
+    border-radius: 0;
+    border-color: #d60000;
+    cursor: default;
+
+    .header-select {
+      display: inline-block;
+      line-height: 34px;
+      width: 90px;
+      text-align: center;
+      border: none;
+      font-size: 16px;
+      color: #d60000;
+      outline: #d60000;
+      cursor: pointer;
+
+      .options {
+        margin-top: 5px;
+        box-shadow: 0 0 3px #eee;
+
+        .option:hover {
+          color: #32b16c;
+          background-color: #eaf7f0;
+        }
+  
+        .option {
+          position: relative;
+          display: none;
+          z-index: 2;
+          color: #666;
+          background: #fff;
+        }
+      }
+    }
+
+    .search-input {
+      margin-left: 20px;
+      width: 250px;
+      height: 34px;
+      color: #999;
+      outline: none;
+      border: none;
+    }
+
+    .icon-xiala::before {
+      line-height: 34px;
+      color: #d60000;
+    }
+
+    .search {
+      width: 76px;
+      height: 35px;
+      line-height: 35px;
+      color: #fff;
+      text-align: center;
+      background-color: #d60000;
+
+      .icon-sousuo {
+        font-size: 22px;
+      }
+    }
+
+
+  }
+
+  .nav-wrap {
+    width: 100%;
+    min-width: 1200px;
+    height: 46px;
+    text-align: center;
+    background-color: #d60000;
+
+    .nav-item.active,
+    .nav-item:hover {
+      color: #fff;
+      background-color: rgba(0, 0, 0, .2);
+      border-bottom: none;
+    }
+  }
+
+  .header-nav {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 45px;
+    list-style: none;
+
+    .nav-item {
+      width: 156px;
+      text-align: center;
+    }
+
+    .link {
+      display: block;
+      margin: 0;
+      width: 156px;
+      line-height: 45px;
+      text-align: center;
+      font-size: 18px;
+      color: #fff;
+      border-bottom: none;
+    }
+
+    .lonk:hover::after {
+      width: 0;
+      height: 0;
+    }
+  }
+}

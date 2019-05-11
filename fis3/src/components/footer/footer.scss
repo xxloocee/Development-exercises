@@ -1,0 +1,107 @@
+.footer {
+  min-width: 1200px;
+  .side {
+    position: fixed;
+    top: 65%;
+    right: 0;
+    width: 66px;
+    height: 132px;
+    text-align: center;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 0 5px #ccc;
+
+    .helpcenter {
+      margin: 0 9px;
+      position: relative;
+      height: 66px;
+      font-size: 12px;
+      color: #d60000;
+      border-bottom: 1px solid #e5e5e5;
+      cursor: pointer;
+
+      .icon-bangzhu {
+        display: block;
+        padding-top: 12px;
+        line-height: 34px;
+        font-size: 34px;
+      }
+    }
+
+    .back-top {
+      height: 66px;
+
+      .back-top {
+        color: #666;
+      }
+
+      .icon-fanhuidingbu {
+        display: block;
+        padding-top: 8px;
+        line-height: 23px;
+        font-size: 27px;
+      }
+    }
+  }
+
+  .wapper {
+    width: 100%;
+    min-width: 1200px;
+    height: 193px;
+    background-color: #fff;
+
+    .container {
+      width: 1200px;
+
+      .breadcrumb {
+        display: flex;
+        line-height: 90px;
+        font-size: 18px;
+        color: #585858;
+
+        .home {
+          text-decoration: underline;
+        }
+      }
+
+      .contact {
+
+        color: #333;
+        font-size: 18px;
+
+        .phone {
+          line-height: 26px;
+        }
+
+        .icon-dianhua {
+          padding-right: 12px;
+          font-size: 38px;
+          vertical-align: middle;
+        }
+      }
+
+      .mobile {
+        padding-top: 42px;
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+
+        .qr {
+          width: 98px;
+          height: 99px;
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+
+  }
+  
+  .copyright {
+    width: 100%;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+    background-color: #d60000;
+  }
+}

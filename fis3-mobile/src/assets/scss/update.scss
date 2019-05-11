@@ -1,0 +1,131 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+// @import "normalize.css/normalize.css";
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-color;
+}
+img {
+  vertical-align: middle;
+}
+a {
+  color: $brand;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    outline: none;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+::selection {
+  background: $brand;
+  color: $white;
+}
+::-moz-selection {
+  background: $brand;
+  color: $white;
+}
+// Layout
+.wrapper{
+  @include center-block();
+  width: 1200px;
+}
+
+.update {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -500px;
+  margin-top: -200px;
+  width: 1000px;
+  height: 300px;
+  color: #000;
+}
+.update-desc {
+  padding-left: 50px;
+  h1 {
+    margin: 0;
+    font-weight: 400;
+    line-height: 100%;
+    font-size: 40px;
+    color: $gray-dark;
+  }
+  p {
+    margin: $module-margin*2 0 0;
+    line-height: 100%;
+    font-size: 20px;
+    color: $gray-dark;
+  }
+  .back{
+    font-size: 16px;
+    color: $gray-light;
+    a {
+      display: inline-block;
+      padding: 0 4px;
+    }
+  }
+}
+.update-bower {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  .update-bower-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 50px;
+    }
+    .desc {
+      margin-left: 24px;
+    }
+    p {
+      margin: 0;
+      font-size: 20px;
+      color: $gray-dark;
+    }
+    .iconfont {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      margin-right: 5px;
+      background: url(assets/images/update_item.png) no-repeat center center;
+    }
+    a {
+      display: block;
+      padding: 5px;
+      margin-top: $module-margin;
+      text-align: center;
+      border: 1px solid $legend-border-color;
+      font-size: 12px;
+      color: $gray-dark;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}

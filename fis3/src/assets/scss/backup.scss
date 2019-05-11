@@ -1,0 +1,28 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+@import "iconfont";
+
+.backup{
+  z-index: 10000;
+  position: fixed;
+  @include box-sizing(border-box);
+  top: 20px;
+  left: 20px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  color: $white;
+  background-color: rgba(0,0,0,.2);
+  .iconfont{
+    font-size: $font-size-h2;
+  }
+  &:hover{
+    color: $white;
+    background-color: rgba(0,0,0,.4);
+  }
+}

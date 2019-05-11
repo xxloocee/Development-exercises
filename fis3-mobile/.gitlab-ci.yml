@@ -1,0 +1,32 @@
+image: homolo/node:4.6.0
+
+cache:
+  paths:
+    - /root/node_modules/
+
+before_script:
+  - mkdir -p /root/node_modules/
+  - mkdir -p node_modules/
+  - ln -s /root/node_modules $PWD/node_modules
+
+stages:
+  - build
+  
+release:
+  stage: build
+  script: 
+    - ls -l
+    - git config --global user.email "gitlab@homolo.net"
+    - git config --global user.name "Homolo GitLab CI"
+    - cnpm install
+    - npm run build
+    - cd .. && rm -rf homolo-prototype-webapp
+    - git clone git@git.homolo.org:static/homolo-prototype-webapp.git
+    - cd homolo-prototype-webapp
+    - rm -rf src/main/webapp/court-attendance-mobile
+    - cp -r ../court-attendance-mobile/court-attendance-mobile src/main/webapp/
+    - git add .
+    - git commit -am "court-attendance-mobile:升级"
+    - git push origin master
+  only:
+    - master
