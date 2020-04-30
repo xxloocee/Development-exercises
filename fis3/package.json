@@ -28,7 +28,7 @@
   "homepage": "https://git.homolo.org/fed/fis-templatet",
   "dependencies": {
     "bootstrap": "^3.3.5",
-    "jquery": "^1.9.1",
+    "jquery": "^3.5.0",
     "normalize.css": "^7.0.0",
     "parsleyjs": "^2.5.0",
     "process": "^0.11.10"
